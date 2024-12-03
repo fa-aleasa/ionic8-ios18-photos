@@ -1,0 +1,32 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+ion-toolbar {
+  --background: transparent;
+  border: none;
+  --border-width: 0 !important;
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#container {
+  margin-bottom: 34px;
+}
+
+// html:not(.plt-hybrid) ion-header {
+//   background: linear-gradient(
+//     0deg,
+//     rgba(25, 118, 210, 0) 0%,
+//     rgba(25, 118, 210, 0.85) 75%,
+//     rgba(25, 118, 210) 100%
+//   );
+// }

@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="large">The quick</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-text class="ion-padding-horizontal">Contact</ion-text>
+      </ion-button>
+
+      <ion-button>
+        <img src="assets/p.jpg" class="profile-img">
+        <!-- <ion-icon slot="icon-only" name="person-circle" class="profile-icon"></ion-icon> -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <ion-img src="assets/p.jpg" class="ad-img"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-buttons class="ion-padding-horizontal ion-padding-top">
+            <ion-button fill="clear" class="subtitle">
+              <h2>
+                <ion-text class="middle" color="dark">Recent Days</ion-text>
+                <ion-icon class="middle" color="medium" name="chevron-forward"></ion-icon>
+              </h2>
+            </ion-button>
+          </ion-buttons>
+
+          <swiper-container [options]="option" class="ion-margin-top">
+
+            <swiper-slide>
+              <ion-card>
+                <img src="assets/images/05.jpg">
+              </ion-card>
+            </swiper-slide>
+
+            <swiper-slide>
+              <ion-card>
+                <img src="assets/images/04.jpg">
+              </ion-card>
+            </swiper-slide>
+
+            <swiper-slide>
+              <ion-card>
+                <img src="assets/images/03.jpg">
+              </ion-card>
+            </swiper-slide>
+
+            <swiper-slide>
+              <ion-card>
+                <img src="assets/images/02.jpg">
+              </ion-card>
+            </swiper-slide>
+
+            <swiper-slide>
+              <ion-card>
+                <img src="assets/images/01.jpg">
+              </ion-card>
+            </swiper-slide>
+
+
+          </swiper-container>
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-padding">
+          <br><br><br><br><br><br>
+          <br><br><br><br><br><br>
+          <br><br><br><br><br><br>
+          <br><br><br><br><br><br>
+          <br><br><br><br><br><br>
+          <br><br><br><br><br><br>
+          <br><br><br><br><br><br>
+          <p>Built with love</p>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "ios18-photos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
