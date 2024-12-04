@@ -7,20 +7,10 @@ ion-header {
     rgba(25, 118, 210, 0.85) 75%,
     rgba(25, 118, 210) 100%
   );
-  backdrop-filter: blur(3px);
-}
-
-ion-title {
-  color: aliceblue;
-  margin: auto;
+  backdrop-filter: blur(1px);
 }
 
 ion-buttons {
-  margin: auto;
-}
-
-h2 {
-  font-weight: bold;
   margin: auto;
 }
 
@@ -29,7 +19,7 @@ h2 {
   width: 32px !important;
   height: 32px !important;
 }
-img.profile-img {
+.profile-img {
   border-radius: 50% !important;
   width: 32px;
   height: 32px;
@@ -38,63 +28,4 @@ img.profile-img {
 
 ion-content {
   display: contents;
-}
-// Else
-
-.ad-img {
-  height: 50vh;
-  object-fit: cover;
-}
-
-.middle {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.subtitle {
-  padding: 0px !important;
-  margin: 0px !important;
-}
-
-
-//  ION SLIDER
-
-ion-card {
-  // width: 90% !important;
-  margin: 0px !important;
-  height: 160px;
-  box-shadow: none;
-  border-radius: 20px;
-
-  img {
-      object-fit: cover;
-      width: 100%;
-      transform: scale(1.1, 1.1);
-      transition: 600ms all ease-in-out;
-  }
-}
-swiper-slide {
-  padding: 0px !important;
-}
-.swiper-slide-next,
-.swiper-slide-prev,
-.swiper-slide-active {
-  position: relative;
-  left: 4%;
-}
-
-.swiper-slide-next,
-.swiper-slide-prev {
-  width: 100% !important;
-}
-.swiper-slide-active {
-  width: 88% !important;
-  margin-right: 2% !important;
-  margin-left: 2% !important;
-
-  ion-card {
-      img {
-          transform: scale(1, 1);
-      }
-  }
 }

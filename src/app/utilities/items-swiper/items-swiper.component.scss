@@ -1,0 +1,18 @@
+// Me edits
+swiper-slide {
+  position: relative;
+  left: 6%;
+}
+
+//---------------------------------------------------
+// IF 1 slidesPerView
+.swiper-slide-next,
+.swiper-slide-prev {
+  width: 100% !important;
+}
+
+.swiper-slide-active {
+  width: 88% !important;
+  // margin-right: 2% !important;
+  // margin-left: 2% !important;
+}

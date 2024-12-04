@@ -1,0 +1,33 @@
+// Me edits
+ion-card {
+  width: 100% !important;
+  margin: 0px !important;
+  height: 160px;
+  box-shadow: none;
+  border-radius: 20px;
+
+  background-size: 100%;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-position: center center !important;
+}
+
+swiper-slide {
+  position: relative;
+  left: 6%;
+}
+
+//---------------------------------------------------
+// IF 1.5 slidesPerView
+swiper-container:has(swiper-slide.swiper-slide-next) swiper-slide {
+  left: 6%;
+}
+swiper-slide {
+  left: -28%;
+}
+
+ion-card-header {
+  position: absolute;
+  bottom: 0;
+}
