@@ -1,9 +1,11 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
 
+// ion-item css
 :root {
   --ion-item-background: var(--ion-color-light) !important;
 }
+
 // ion-slider css
 swiper-container {
   --swiper-pagination-bullet-inactive-color: var(--ion-text-color-step-800, #cccccc);
@@ -27,6 +29,7 @@ swiper-slide {
 }
 
 // ------------------------------------
+// Me
 
 .white-text {
   color: #fff !important;
