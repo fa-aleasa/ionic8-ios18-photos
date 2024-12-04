@@ -3,12 +3,17 @@
     <ion-title size="large" class="white-text">The quick</ion-title>
 
     <ion-buttons slot="primary">
-      <ion-button fill="solid" shape="round" class="white-btn">
-        <ion-text class="ion-padding-horizontal">Contact</ion-text>
+      <ion-button id="open-modal" expand="block">
+        <ion-icon slot="icon-only" name="language" class="white-text profile-icon"></ion-icon>
       </ion-button>
+      <!-- <ion-button fill="solid" shape="round" class="white-btn" id="open-modal" expand="block">
+        <ion-text class="ion-padding-horizontal"></ion-text>
+      </ion-button> -->
 
-      <ion-button>
-        <!-- <img src="assets/p.jpg" class="profile-img"> -->
+      <!-- <ion-button (click)="openProfileModal()">
+        <img src="assets/p.jpg" class="profile-img">
+      </ion-button> -->
+      <ion-button (click)="openProfileModal()">
         <ion-icon slot="icon-only" name="person-circle" class="white-text profile-icon"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -49,4 +54,10 @@
       </ion-row>
     </ion-grid>
   </div>
+
+  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <div class="block">Block of Content</div>
+    </ng-template>
+  </ion-modal>
 </ion-content>
