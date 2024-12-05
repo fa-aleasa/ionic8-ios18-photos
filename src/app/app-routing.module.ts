@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsNavPageModule)
   }
 ];
 

@@ -4,8 +4,9 @@
 
     <ion-buttons slot="primary">
       <ion-button id="open-modal" expand="block">
-        <ion-icon slot="icon-only" name="language" class="white-text profile-icon"></ion-icon>
+        <ion-icon slot="icon-only" name="notifications" class="white-text profile-icon"></ion-icon>
       </ion-button>
+
       <!-- <ion-button fill="solid" shape="round" class="white-btn" id="open-modal" expand="block">
         <ion-text class="ion-padding-horizontal"></ion-text>
       </ion-button> -->
@@ -13,8 +14,9 @@
       <!-- <ion-button (click)="openProfileModal()">
         <img src="assets/p.jpg" class="profile-img">
       </ion-button> -->
-      <ion-button (click)="openProfileModal()">
-        <ion-icon slot="icon-only" name="person-circle" class="white-text profile-icon"></ion-icon>
+
+      <ion-button (click)="openSettingsModal()">
+        <ion-icon slot="icon-only" name="settings" class="white-text profile-icon"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -26,6 +28,12 @@
       <ion-row>
         <ion-col>
           <app-cover-full-swiper></app-cover-full-swiper>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <app-cards-tiny-swiper></app-cards-tiny-swiper>
         </ion-col>
       </ion-row>
 

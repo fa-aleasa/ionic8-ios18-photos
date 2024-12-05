@@ -1,7 +1,8 @@
 ion-card {
   width: 100% !important;
   margin: 0px !important;
-  height: 160px;
+  height: 0;
+  padding-bottom: 100%;
   box-shadow: none;
   border-radius: 20px;
 
@@ -23,22 +24,12 @@ swiper-slide {
 }
 
 //---------------------------------------------------
-// IF 1.x slidesPerView
-swiper-container:has(swiper-slide.swiper-slide-next) swiper-slide {
-  left: 6.5%;
+// IF 4 slidesPerView
+swiper-container:has(swiper-slide.swiper-slide-next:nth-last-child(3) ) swiper-slide {
+  left: -6%;
 }
 
-swiper-container:has(swiper-slide.swiper-slide-next :dir(rtl)) swiper-slide {
+swiper-container:has(swiper-slide.swiper-slide-next:nth-last-child(3) :dir(rtl)) swiper-slide {
   left: unset;
-  right: 6.5%;
+  right: -6%;
 }
-
-swiper-slide {
-  left: -6.5%;
-
-  :dir(rtl) & {
-    left: unset;
-    right: -6.5%;
-  }
-}
-

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ProfilePage } from '../profile/profile.page';
+import { SettingsNavPage } from '../settings/settings.page';
 
 
 @Component({
@@ -12,9 +12,9 @@ export class HomePage {
 
   constructor(private modalCtrl:ModalController) {}
 
-  async openProfileModal() {
+  async openSettingsModal() {
     const modal = await this.modalCtrl.create({
-      component: ProfilePage,
+      component: SettingsNavPage,
     });
     modal.present();
 

@@ -2,6 +2,11 @@
 swiper-slide {
   position: relative;
   left: 6%;
+
+  :dir(rtl) & {
+    left: unset;
+    right: 6%;
+  }
 }
 
 //---------------------------------------------------
