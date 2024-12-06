@@ -25,11 +25,11 @@ swiper-slide {
 
 //---------------------------------------------------
 // IF 4 slidesPerView
-swiper-container:has(swiper-slide.swiper-slide-next:nth-last-child(3) ) swiper-slide {
+swiper-container:has(swiper-slide.swiper-slide-next:nth-last-child(2) ) swiper-slide {
   left: -6%;
 }
 
-swiper-container:has(swiper-slide.swiper-slide-next:nth-last-child(3) :dir(rtl)) swiper-slide {
+swiper-container:has(swiper-slide.swiper-slide-next:nth-last-child(2) :dir(rtl)) swiper-slide {
   left: unset;
   right: -6%;
 }

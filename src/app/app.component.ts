@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
-import {TranslateService} from "@ngx-translate/core";
+import { PreloaderService } from './core/bootstrap/preloader.service';
+import { SettingsService } from './core/bootstrap/settings.service';
+import { TranslateLangService } from './core/bootstrap/translate-lang.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,15 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private translate: TranslateService) {
-    this.translate.addLangs(['ar-SA', 'en-US']);
+  constructor(
+    private settings: SettingsService,
+    private translateLangService: TranslateLangService,
+    private preloader: PreloaderService,
+  ) {
+    this.translateLangService.load()
+  }
 
-    this.translate.setDefaultLang('ar-SA');
-    this.translate.use('ar-SA');
-
-    // this.translate.use(this.translate.getBrowserLang()? 'en-US' : 'ar-SA');
-
-    document.documentElement.dir = "rtl";
-    document.documentElement.lang = "ar-SA";
-
-  }}
+  ngAfterViewInit() {
+    this.preloader.hide();
+  }
+}

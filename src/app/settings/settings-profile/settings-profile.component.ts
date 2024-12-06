@@ -3,8 +3,8 @@ import { ModalController, IonNav, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'settings-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  templateUrl: './settings-profile.component.html',
+  styleUrls: ['./settings-profile.component.scss'],
 })
 export class ProfileComponent  implements OnInit {
 

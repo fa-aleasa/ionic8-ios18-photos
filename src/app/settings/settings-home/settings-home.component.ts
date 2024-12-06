@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IonNav, ModalController } from '@ionic/angular';
 
-import { ProfileComponent } from '../profile/profile.component';
+import { ProfileComponent } from '../settings-profile/settings-profile.component';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-settings-home',
+  selector: 'settings-home',
   templateUrl: './settings-home.component.html',
   styleUrls: ['./settings-home.component.scss'],
 })

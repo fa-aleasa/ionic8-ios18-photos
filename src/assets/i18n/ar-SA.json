@@ -1,3 +1,9 @@
 {
+  "LOADING": "يرجى الانتظار",
+  "language": "اللغة",
+  "ar-SA": "عربي",
+  "en-US": "English",
+  "profile": "الملف الشخص",
+  "logout": "تسجيل الخروج",
   "settings": "اعدادات"
 }

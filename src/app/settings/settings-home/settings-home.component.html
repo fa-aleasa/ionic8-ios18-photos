@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-padding-top">
   <ion-toolbar>
     <ion-title size="large">{{'settings' | translate}}</ion-title>
     <ion-buttons slot="end">
@@ -14,20 +14,20 @@
   <p class="ion-margin-bottom">You will be prompted when closing this modal.</p>
 
   <ion-list [inset]="true" class="ion-no-margin">
-    <ion-item [button]="true" detail="true" (click)="navigateToPageTwo()">
+    <ion-item button detail="true" (click)="navigateToPageTwo()">
       <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
       <ion-label>Profile</ion-label>
     </ion-item>
-    <ion-item [button]="true" detail="true">
+    <ion-item button detail="true">
       <ion-icon color="tertiary" slot="start" name="list-circle" size="large"></ion-icon>
       <ion-label>Shopping</ion-label>
     </ion-item>
-    <ion-item [button]="true" detail="true">
+    <ion-item button detail="true">
       <ion-icon color="success" slot="start" name="list-circle" size="large"></ion-icon>
       <ion-label>Cleaning</ion-label>
       <ion-note slot="end">3</ion-note>
     </ion-item>
-    <ion-item [button]="true" detail="false">
+    <ion-item button detail="false">
       <ion-icon color="warning" slot="start" name="list-circle" size="large"></ion-icon>
       <ion-label>Reminders</ion-label>
       <ion-note slot="end">8</ion-note>

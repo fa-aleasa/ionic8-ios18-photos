@@ -3,19 +3,18 @@
     <ion-title size="large" class="white-text">The quick</ion-title>
 
     <ion-buttons slot="primary">
-      <ion-button id="open-modal" expand="block">
+      <ion-button (click)="openSettingsModal()">
         <ion-icon slot="icon-only" name="notifications" class="white-text profile-icon"></ion-icon>
       </ion-button>
 
       <!-- <ion-button fill="solid" shape="round" class="white-btn" id="open-modal" expand="block">
-        <ion-text class="ion-padding-horizontal"></ion-text>
+        <ion-text class="ion-padding-horizontal">xxx</ion-text>
       </ion-button> -->
 
       <!-- <ion-button (click)="openProfileModal()">
         <img src="assets/p.jpg" class="profile-img">
       </ion-button> -->
-
-      <ion-button (click)="openSettingsModal()">
+      <ion-button id="open-settings-modal" expand="block">
         <ion-icon slot="icon-only" name="settings" class="white-text profile-icon"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -63,9 +62,30 @@
     </ion-grid>
   </div>
 
-  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ion-modal trigger="open-settings-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
-      <div class="block">Block of Content</div>
+      <div class="block ion-margin ion-padding-vertical">
+        <p class="ion-margin-vertical">You will be prompted when closing this modal.</p>
+
+        <ion-list [inset]="true">
+          <ion-item button detail="true">
+            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            <ion-label>{{'profile' | translate}}</ion-label>
+          </ion-item>
+          <ion-item button detail="false" (click)="changeLang()">
+            <ion-icon slot="start" name="language" ></ion-icon>
+            <ion-label>{{'language' | translate}}</ion-label>
+            <ion-button slot="end" fill="outline" shape="round"> <span class="ion-padding-horizontal">{{ appLang | translate }}</span>  </ion-button>
+          </ion-item>
+          <ion-item button detail="false">
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            <ion-label>{{'logout' | translate}}</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <p class="ion-margin-vertical">You will be prompted when closing this modal.</p>
+
+      </div>
     </ng-template>
   </ion-modal>
 </ion-content>

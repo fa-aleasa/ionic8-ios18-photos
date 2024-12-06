@@ -1,3 +1,9 @@
 {
-  "settings": "Profile"
+  "LOADING": "Please wait",
+  "language": "Language",
+  "ar-SA": "عربي",
+  "en-US": "English",
+  "profile": "profile",
+  "logout": "Logout",
+  "settings": "settings"
 }
