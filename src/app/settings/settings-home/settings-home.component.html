@@ -1,6 +1,7 @@
 <ion-header [translucent]="true" class="ion-padding-top">
   <ion-toolbar>
     <ion-title size="large">{{'settings' | translate}}</ion-title>
+
     <ion-buttons slot="end">
     <ion-button (click)="close()">
       <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
@@ -14,7 +15,7 @@
   <p class="ion-margin-bottom">You will be prompted when closing this modal.</p>
 
   <ion-list [inset]="true" class="ion-no-margin">
-    <ion-item button detail="true" (click)="navigateToPageTwo()">
+    <ion-item button detail="true" (click)="navigateToProfile()">
       <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
       <ion-label>Profile</ion-label>
     </ion-item>

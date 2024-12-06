@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isStandalone, OnInit } from '@angular/core';
 import { IonNav, ModalController } from '@ionic/angular';
 
-import { ProfileComponent } from '../settings-profile/settings-profile.component';
+import { SettingsProfileComponent } from '../settings-profile/settings-profile.component';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -21,8 +21,8 @@ export class SettingsHomeComponent  implements OnInit {
     private modalCtrl: ModalController
   ) {}
 
-  navigateToPageTwo() {
-    this.nav.push(ProfileComponent);
+  navigateToProfile() {
+    this.nav.push(SettingsProfileComponent,{isStandalone: false, back: 'settings'});
   }
 
   ngOnInit() {}

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SettingsNavPage } from './settings.page';
 import { SettingsNavPageRoutingModule } from './settings-routing.module';
-import { ProfileComponent } from './settings-profile/settings-profile.component';
+import { SettingsProfileComponent } from './settings-profile/settings-profile.component';
 import { SettingsHomeComponent } from './settings-home/settings-home.component';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -20,7 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
   declarations: [
     SettingsNavPage,
     SettingsHomeComponent,
-    ProfileComponent,
+    SettingsProfileComponent,
   ]
 })
 export class SettingsNavPageModule {}

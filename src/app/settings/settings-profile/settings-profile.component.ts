@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController, IonNav, Platform } from '@ionic/angular';
 
 @Component({
@@ -6,27 +6,15 @@ import { ModalController, IonNav, Platform } from '@ionic/angular';
   templateUrl: './settings-profile.component.html',
   styleUrls: ['./settings-profile.component.scss'],
 })
-export class ProfileComponent  implements OnInit {
+export class SettingsProfileComponent  implements OnInit {
+  @Input() isStandalone: boolean = true;
+  @Input() back: string = 'back';
 
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  constructor(
-    private nav: IonNav,
-    private modalCtrl: ModalController,
-    private platform: Platform,
-  ) {
-    this.platform.backButton.subscribeWithPriority(101, async () => {
-      let canGoBack = await this.nav.canGoBack();
-      if (canGoBack) {
-        this.nav.pop();
-      } else {
-        await this.modalCtrl.dismiss();
-      }
-      return;
-    });
-  }
+  constructor(private modalCtrl: ModalController,) { }
 
   ngOnInit() {}
 

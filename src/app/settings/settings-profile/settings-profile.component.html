@@ -1,14 +1,19 @@
 <ion-header [translucent]="true" class="ion-padding-top">
   <ion-toolbar>
-    <ion-title >Profile</ion-title>
+    @if (isStandalone === true) {
+    <ion-title size="large">{{'profile' | translate}}</ion-title>
+    }
+    @if (isStandalone === false) {
+      <ion-title>{{'profile' | translate}}</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="#" text="{{back | translate}}" color="dark"></ion-back-button>
+      </ion-buttons>
+    }
 
-    <ion-buttons slot="start">
-      <ion-back-button default-href="#" text="{{'settings' | translate}}" color="dark"></ion-back-button>
-    </ion-buttons>
     <ion-buttons slot="end">
-    <ion-button (click)="close()">
-      <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
-    </ion-button>
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
