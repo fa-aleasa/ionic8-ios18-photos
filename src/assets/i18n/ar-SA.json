@@ -1,9 +1,14 @@
 {
   "LOADING": "يرجى الانتظار",
+  "select": "اختر",
+  "change": "تغيير",
+  "ok": "موافق",
+  "cancel": "الغاء",
   "language": "اللغة",
-  "ar-SA": "عربي",
+  "ar-SA": "العربية",
   "en-US": "English",
   "profile": "الملف الشخصي",
   "logout": "تسجيل الخروج",
+  "logoutAlertHeader": "تأكيد تسجيل الخروج؟",
   "settings": "اعدادات"
 }

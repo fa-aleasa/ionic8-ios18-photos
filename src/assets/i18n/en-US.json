@@ -1,9 +1,14 @@
 {
   "LOADING": "Please wait",
+  "select": "Select",
+  "change": "Change",
+  "ok": "OK",
+  "cancel": "Cancel",
   "language": "Language",
-  "ar-SA": "عربي",
+  "ar-SA": "العربية",
   "en-US": "English",
   "profile": "Profile",
-  "logout": "Logout",
+  "logout": "Log out",
+  "logoutAlertHeader": "Confirm log out?",
   "settings": "Settings"
 }

@@ -4,7 +4,11 @@
 
     <ion-buttons slot="primary">
       <ion-button (click)="openSettingsModal()">
-        <ion-icon slot="icon-only" name="notifications" class="white-text profile-icon"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="notifications"
+          class="white-text profile-icon"
+        ></ion-icon>
       </ion-button>
 
       <!-- <ion-button fill="solid" shape="round" class="white-btn" id="open-modal" expand="block">
@@ -15,7 +19,11 @@
         <img src="assets/p.jpg" class="profile-img">
       </ion-button> -->
       <ion-button id="open-settings-modal" expand="block">
-        <ion-icon slot="icon-only" name="settings" class="white-text profile-icon"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="settings"
+          class="white-text profile-icon"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -62,30 +70,52 @@
     </ion-grid>
   </div>
 
-  <ion-modal trigger="open-settings-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" #inlineModal>
+  <ion-modal
+    trigger="open-settings-modal"
+    [initialBreakpoint]="1"
+    [breakpoints]="[0, 1]"
+    #inlineModal
+  >
     <ng-template>
       <div class="block ion-margin ion-padding-vertical">
-        <p class="ion-margin-vertical">You will be prompted when closing this modal.</p>
+        <p class="ion-margin-vertical">
+          You will be prompted when closing this modal.
+        </p>
 
         <ion-list [inset]="true">
           <ion-item button detail="false" (click)="openProfileModal()">
-            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            <ion-icon slot="start" name="person" size="small"></ion-icon>
             <ion-label>{{'profile' | translate}}</ion-label>
           </ion-item>
-          <ion-item button detail="false" (click)="changeLang()">
-            <ion-icon slot="start" name="language"></ion-icon>
-            <ion-label>{{'language' | translate}}</ion-label>
-            <ion-button slot="end" fill="outline" shape="round"> <span class="ion-padding-horizontal">{{ appLang |
-                translate }}</span> </ion-button>
+
+          <ion-item button detail="false">
+            <ion-icon slot="start" name="language" size="small"></ion-icon>
+            <ion-select
+              label="{{'language' | translate}}"
+              placeholder="{{ 'select' | translate }}"
+              okText="{{'change' | translate}}"
+              cancelText="{{'cancel' | translate}}"
+              (ionChange)="handleLangChange($event)"
+              [value]="appLang"
+            >
+              <ion-select-option value="ar-SA"
+                >{{ 'ar-SA' | translate }}</ion-select-option
+              >
+              <ion-select-option value="en-US"
+                >{{ 'en-US' | translate }}</ion-select-option
+              >
+            </ion-select>
           </ion-item>
+
           <ion-item button detail="false" (click)="logout()">
-            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            <ion-icon slot="start" name="log-out" size="small"></ion-icon>
             <ion-label>{{'logout' | translate}}</ion-label>
           </ion-item>
         </ion-list>
 
-        <p class="ion-margin-vertical">You will be prompted when closing this modal.</p>
-
+        <p class="ion-margin-vertical">
+          You will be prompted when closing this modal.
+        </p>
       </div>
     </ng-template>
   </ion-modal>
