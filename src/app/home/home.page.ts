@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  @ViewChild('inlineModal') inlineModal!: ModalController;
+  @ViewChild('sheetModal') inlineModal!: ModalController;
 
   appLang: string =
     this.settings.options.language === 'en-US' ? 'en-US' : 'ar-SA';

@@ -1,4 +1,4 @@
-import { Component, isStandalone, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonNav, ModalController } from '@ionic/angular';
 
 import { SettingsProfileComponent } from '../settings-profile/settings-profile.component';

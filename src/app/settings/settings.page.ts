@@ -11,7 +11,7 @@ import { SettingsHomeComponent } from './settings-home/settings-home.component';
 export class SettingsNavPage {
   component = SettingsHomeComponent;
 
-  @ViewChild('nav') private nav!: IonNav;
+  @ViewChild('settingNav') private nav!: IonNav;
 
   constructor(
     private modalCtrl: ModalController,
