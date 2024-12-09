@@ -34,6 +34,8 @@ export class SettingsService {
   }
 
   setLanguage(lang: string) {
+    this.htmlElement.lang = lang;
+
     this.options.language = lang;
     this.store.set(this.key, this.options);
     this.notify$.next(this.options);
