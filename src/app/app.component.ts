@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { PreloaderService } from './core/bootstrap/preloader.service';
 import { SettingsService } from './core/bootstrap/settings.service';
-import { TranslateLangService } from './core/bootstrap/translate-lang.service';
+import { LangService } from './core/bootstrap/lang.service';
+import { ModeService } from './core/bootstrap/mode.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,12 @@ import { TranslateLangService } from './core/bootstrap/translate-lang.service';
 })
 export class AppComponent {
   constructor(
-    private settings: SettingsService,
-    private translateLangService: TranslateLangService,
+    private langService: LangService,
+    private modeService: ModeService,
     private preloader: PreloaderService,
   ) {
-    this.translateLangService.load()
+    this.modeService.load();
+    this.langService.load();
   }
 
   ngAfterViewInit() {

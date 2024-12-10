@@ -1,12 +1,10 @@
-export type AppTheme = 'light' | 'dark' | 'auto';
-
 export interface AppSettings {
-  mode: AppTheme;
+  mode: string;
   language: string;
 }
 
 // HERE THEME
 export const defaults: AppSettings = {
-  mode: 'light',
+  mode: 'auto',
   language: 'ar-SA',
 };

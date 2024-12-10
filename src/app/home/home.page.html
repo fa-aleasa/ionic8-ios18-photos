@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title size="large" class="white-text">The quick</ion-title>
+    <ion-title size="large" class="primary-text">The quick</ion-title>
 
     <ion-buttons slot="primary">
       <ion-button (click)="openSettingsModal()">
         <ion-icon
           slot="icon-only"
           name="notifications"
-          class="white-text profile-icon"
+          class="primary-text profile-icon"
         ></ion-icon>
       </ion-button>
 
-      <!-- <ion-button fill="solid" shape="round" class="white-btn" id="open-modal" expand="block">
+      <!-- <ion-button fill="solid" shape="round" class="primary-btn" id="open-modal" expand="block">
         <ion-text class="ion-padding-horizontal">xxx</ion-text>
       </ion-button> -->
 
@@ -22,7 +22,7 @@
         <ion-icon
           slot="icon-only"
           name="settings"
-          class="white-text profile-icon"
+          class="primary-text profile-icon"
         ></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -78,9 +78,7 @@
   >
     <ng-template>
       <div class="block ion-margin ion-padding-vertical">
-        <p class="ion-margin-horizontal">
-          TITLE
-        </p>
+        <p class="ion-margin-horizontal">TITLE</p>
 
         <ion-list [inset]="true">
           <ion-item button detail="false" (click)="openProfileModal()">
@@ -103,6 +101,29 @@
               >
               <ion-select-option value="en-US"
                 >{{ 'en-US' | translate }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+
+          <ion-item button detail="false">
+            <ion-icon slot="start" name="invert-mode" size="small"></ion-icon>
+            <ion-select
+              interface="popover"
+              label="{{'mode' | translate}}"
+              placeholder="{{ 'select' | translate }}"
+              okText="{{'change' | translate}}"
+              cancelText="{{'cancel' | translate}}"
+              (ionChange)="handleModeChange($event)"
+              [value]="appMode"
+            >
+              <ion-select-option value="auto"
+                >{{ 'auto-mode' | translate }}</ion-select-option
+              >
+              <ion-select-option value="light"
+                >{{ 'light-mode' | translate }}</ion-select-option
+              >
+              <ion-select-option value="dark" lines="none"
+                >{{ 'dark-mode' | translate }}</ion-select-option
               >
             </ion-select>
           </ion-item>

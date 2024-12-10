@@ -13,8 +13,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomePage {
   @ViewChild('sheetModal') inlineModal!: ModalController;
 
-  appLang: string =
-    this.settings.options.language === 'en-US' ? 'en-US' : 'ar-SA';
+  appLang: string = this.settings.options.language;
+  appMode: string = this.settings.options.mode;
 
   constructor(
     private modalCtrl: ModalController,
@@ -64,6 +64,10 @@ export class HomePage {
       window.location.reload();
     }
   }
+
+  handleModeChange(e: any) {
+    this.settings.changeMode(e.detail.value);
+}
 
   async logout() {
     let okText = this.translate.instant('logout');

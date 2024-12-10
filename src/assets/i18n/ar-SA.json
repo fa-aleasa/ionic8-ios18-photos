@@ -7,8 +7,12 @@
   "language": "اللغة",
   "ar-SA": "العربية",
   "en-US": "English",
-  "profile": "الملف الشخصي",
+  "mode": "المظهر",
+  "auto-mode": "مظهر تلقائي",
+  "light-mode": "المظهر الفاتح",
+  "dark-mode": "المظهر الغامق",
   "logout": "تسجيل الخروج",
   "logoutAlertHeader": "تأكيد تسجيل الخروج؟",
-  "settings": "اعدادات"
+  "settings": "اعدادات",
+  "profile": "الملف الشخصي"
 }
