@@ -11,13 +11,15 @@ export class ModeService {
   constructor(private settings: SettingsService) {}
 
   load() {
-    return new Promise<void>((resolve) => {
+    return new Promise<boolean>(async (resolve) => {
       let isDark;
-      let StoredMode = this.settings.getStoredOptions().mode
-        ? this.settings.getStoredOptions().mode
+
+      let getStoredOptions = await this.settings.getStoredOptions();
+      let StoredMode = getStoredOptions.mode
+        ? getStoredOptions.mode
         : this.defaultMode;
 
-        StoredMode === 'auto'
+      StoredMode === 'auto'
         ? (isDark = this.browserMode.matches ? true : false)
         : StoredMode === 'dark'
         ? (isDark = true)
@@ -25,16 +27,19 @@ export class ModeService {
 
       document.documentElement.classList.toggle('ion-palette-dark', isDark);
 
-      this.browserMode.addEventListener('change', (e) => {
-        let StoredMode = this.settings.getStoredOptions().mode;
+      this.browserMode.addEventListener('change', async (e) => {
+        let getStoredOptions = await this.settings.getStoredOptions();
+        let StoredMode = getStoredOptions.mode;
 
         StoredMode === 'auto'
-        ? (isDark = this.browserMode.matches ? true : false)
-        : StoredMode === 'dark'
-        ? (isDark = true)
-        : (isDark = false);
+          ? (isDark = this.browserMode.matches ? true : false)
+          : StoredMode === 'dark'
+          ? (isDark = true)
+          : (isDark = false);
         document.documentElement.classList.toggle('ion-palette-dark', isDark);
       });
+
+      resolve(true);
     });
   }
 }

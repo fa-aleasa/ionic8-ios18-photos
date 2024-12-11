@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { APP_INITIALIZER, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -16,6 +16,11 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+
+import { StartupService } from './core/bootstrap/startup.service';
+import { LangService } from './core/bootstrap/lang.service';
+import { ModeService } from './core/bootstrap/mode.service';
+import { CapacitorStorageService } from './core/bootstrap/storage.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,6 +47,27 @@ import {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideHttpClient(withInterceptorsFromDi()),
+    // ME ---------------------------------------
+    {
+      provide: APP_INITIALIZER,
+      useFactory: StartupServiceFactory,
+      deps: [StartupService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: LangServiceFactory,
+      deps: [LangService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: ModeServiceFactory,
+      deps: [ModeService],
+      multi: true,
+    },
+    CapacitorStorageService,
+    // ME ---------------------------------------
   ],
 
   bootstrap: [AppComponent],
@@ -51,4 +77,14 @@ export class AppModule {}
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+export function StartupServiceFactory(startupService: StartupService) {
+  return () => startupService.load();
+}
+export function LangServiceFactory(LangService: LangService) {
+  return () => LangService.load();
+}
+export function ModeServiceFactory(ModeService: ModeService) {
+  return () => ModeService.load();
 }

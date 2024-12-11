@@ -12,12 +12,14 @@ export class LangService {
   ) {}
 
   load() {
-    return new Promise<void>(resolve => {
-      // const browserLang = navigator.language;
-      // const defaultLang = browserLang.match(/ar-SA|en-US/) ? browserLang : 'ar-SA';
-      let defaultLang = this.settings.options.language;
+    return new Promise<void>(async resolve => {
+      const browserLang = navigator.language;
+      let defaultLang = browserLang.match(/ar-SA|en-US/) ? browserLang : 'ar-SA';
 
-      this.settings.setLanguage(defaultLang);
+      let getStoredOptions = await this.settings.getStoredOptions();
+      defaultLang =  getStoredOptions.language ? getStoredOptions.language : this.settings.options.language;
+
+      await this.settings.setLanguage(defaultLang);
 
       this.translate.setDefaultLang(defaultLang);
       this.translate.use(defaultLang).subscribe({
@@ -25,7 +27,6 @@ export class LangService {
         error: () => console.error(`Problem with '${defaultLang}' language initialization.'`),
         complete: () => resolve(),
       });
-
     });
   }
 }

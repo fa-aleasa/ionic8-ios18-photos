@@ -17,12 +17,18 @@
   --ion-item-background: #e3e3e8 !important;
 }
 .ion-palette-dark {
-    --ion-background-color: #1c1c1e !important;
-    --ion-item-background: #323135 !important;
+  --ion-background-color: #1c1c1e !important;
+  --ion-item-background: #323135 !important;
 }
-// ion-header {
-//   background: #1976d2;
-// }
+ion-header {
+  // background: #1976d2;
+
+  // IF no card maodal
+  padding-bottom: 6px;
+  padding-top: 6px;
+  padding-right: calc(var(--ion-safe-area-right) + 8px);
+  padding-left: calc(var(--ion-safe-area-left) + 8px);
+}
 .header-padding {
   padding-bottom: 6px;
   padding-top: 6px;

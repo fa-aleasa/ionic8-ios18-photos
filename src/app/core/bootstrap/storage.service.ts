@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { GetResult, Preferences } from '@capacitor/preferences';
+import { AppSettings } from '../settings';
 
 @Injectable({
   providedIn: 'root',
@@ -49,5 +51,29 @@ export class MemoryStorageService {
 
   clear() {
     this.store = {};
+  }
+}
+
+export class CapacitorStorageService {
+  async get(key: string): Promise<GetResult> {
+    const { value } = await Preferences.get({ key: key });
+    return JSON.parse(value || '{}') || {};
+  }
+
+  async set(key: string, value: AppSettings): Promise<boolean> {
+    await Preferences.set({key:key, value:JSON.stringify(value)});
+    return true;
+  }
+
+  async has(key: string): Promise<boolean> {
+    return !!(await Preferences.get({ key: key }));
+  }
+
+  async remove(key: string) {
+    await Preferences.remove({ key: key });
+  }
+
+  async clear() {
+    await Preferences.clear();
   }
 }
