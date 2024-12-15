@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="page-toolbar">
+    @if (isStandalone === true) {
+    <ion-title size="large" class="title-med">{{
+      "profile" | translate
+    }}</ion-title>
+    } @if (isStandalone === false) {
+    <ion-title>{{ "profile" | translate }}</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-circle" color="dark" class="back-btn"></ion-back-button>
+    </ion-buttons>
+    }
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" class="close-btn">
+        <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p class="ion-margin-horizontal">TITLE</p>
+  <ion-list [inset]="true" class="ion-no-margin">
+    <ion-item button detail="false">
+      <ion-icon slot="start" name="list" size="small"></ion-icon>
+      <ion-label>Cleaning</ion-label>
+      <ion-note slot="end">3</ion-note>
+    </ion-item>
+    <ion-item button detail="false">
+      <ion-icon slot="start" name="list" size="small"></ion-icon>
+      <ion-label>Reminders</ion-label>
+      <ion-note slot="end">8</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

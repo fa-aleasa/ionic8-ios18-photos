@@ -20,36 +20,60 @@
   --ion-background-color: #1c1c1e !important;
   --ion-item-background: #323135 !important;
 }
-ion-header {
-  // background: #1976d2;
-
-  // IF no card maodal
-  padding-bottom: 6px;
-  padding-top: 6px;
-  padding-right: calc(var(--ion-safe-area-right) + 8px);
-  padding-left: calc(var(--ion-safe-area-left) + 8px);
-}
-.header-padding {
-  padding-bottom: 6px;
-  padding-top: 6px;
-  padding-right: calc(var(--ion-safe-area-right) + 8px);
-  padding-left: calc(var(--ion-safe-area-left) + 8px);
-}
 .primary-text {
   color: #fff !important;
 }
 .primary-btn {
-  --background: var(--ion-color-btn, #fff);
-  --color: var(--ion-color-primary);
+  --background: var(--ion-color-btn, #fff) !important;
+  --color: var(--ion-color-primary) !important;
 }
-
+.primary-chip {
+  border-color: rgba(var(--ion-text-color-rgb, 255, 255, 255), 0.5) !important;
+}
 // ------------------------------------
-
+ion-header {
+  // background: #1976d2;
+}
 ion-toolbar {
   --background: transparent;
-  border: none;
   --border-width: 0 !important;
+  border: none;
 }
+.page-toolbar {
+  padding-bottom: 4px !important;
+  padding-top: calc(var(--ion-safe-area-top) + 4px) !important;
+  padding-right: calc(var(--ion-safe-area-right) + 8px) !important;
+  padding-left: calc(var(--ion-safe-area-left) + 8px) !important;
+}
+
+.back-btn {
+  --padding-start: 0;
+  --padding-end: 9px;
+
+  -webkit-margin-start: 2px;
+  -webkit-margin-end: 2px;
+
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+
+  --icon-margin-start: 0;
+  --icon-margin-end: 0;
+
+}
+ion-button.close-btn {
+  --padding-start: 5px;
+  --padding-end: 0;
+
+  -webkit-margin-start: 2px;
+  -webkit-margin-end: 2px;
+
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+
+  --icon-margin-start: 0;
+  --icon-margin-end: 0;
+}
+
 ion-list {
   margin: 0px !important;
 }
@@ -64,6 +88,22 @@ ion-menu ion-item.selected {
   color: var(--ion-color-primary-contrast);
 }
 
+// ------------------------------------
+ion-item ion-icon.secondary {
+  background-color: var(--ion-color-secondary);
+}
+ion-item ion-icon.tertiary {
+  background-color: var(--ion-color-tertiary);
+}
+ion-item ion-icon.success {
+  background-color: var(--ion-color-success);
+}
+ion-item ion-icon.warning {
+  background-color: var(--ion-color-warning);
+}
+ion-item ion-icon.danger {
+  background-color: var(--ion-color-danger);
+}
 // ------------------------------------
 // Me
 .show-md {
@@ -80,7 +120,7 @@ ion-menu ion-item.selected {
   padding-inline-start: 4px !important;
 }
 .title-med {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 .red-text {
   color: var(--ion-color-danger) !important;

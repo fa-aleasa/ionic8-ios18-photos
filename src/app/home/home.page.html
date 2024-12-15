@@ -1,28 +1,33 @@
-<ion-header class="header-padding">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar class="page-toolbar">
     <ion-title size="large" class="primary-text">The quick</ion-title>
 
     <ion-buttons slot="primary">
-      <ion-button (click)="openSettingsModal()">
+      <!-- <ion-button fill="solid" shape="round" class="primary-btn" id="open-modal">
+        <ion-text class="ion-padding-horizontal">xxx</ion-text>
+      </ion-button> -->
+      <!-- <ion-button>
+        <img src="assets/p.jpg" class="profile-img">
+      </ion-button> -->
+
+      <ion-chip [outline]="true" class="chip primary-chip">
+        <ion-icon name="navigate-circle" class="primary-text"></ion-icon>
+        <ion-label class="primary-text">Jeddah</ion-label>
+      </ion-chip>
+
+      <ion-button (click)="openAppModal('NotificationsHome')" class="btn">
         <ion-icon
           slot="icon-only"
-          name="notifications"
-          class="primary-text profile-icon"
+          name="notifications-circle"
+          class="primary-text"
         ></ion-icon>
       </ion-button>
 
-      <!-- <ion-button fill="solid" shape="round" class="primary-btn" id="open-modal" expand="block">
-        <ion-text class="ion-padding-horizontal">xxx</ion-text>
-      </ion-button> -->
-
-      <!-- <ion-button (click)="openProfileModal()">
-        <img src="assets/p.jpg" class="profile-img">
-      </ion-button> -->
-      <ion-button id="open-settings-modal" expand="block">
+      <ion-button id="open-settings-modal" class="btn">
         <ion-icon
           slot="icon-only"
-          name="settings"
-          class="primary-text profile-icon"
+          name="list-circle"
+          class="primary-text"
         ></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -58,7 +63,7 @@
 
       <ion-row>
         <ion-col>
-          <app-items-swiper></app-items-swiper>
+          <app-items-swiper [content]="itemsContent"></app-items-swiper>
         </ion-col>
       </ion-row>
 
@@ -77,7 +82,7 @@
     #sheetModal
   >
     <ng-template>
-      <div class="block ion-margin ion-padding-vertical">
+      <div class="sheet ion-margin ion-padding-vertical">
         <p class="ion-margin-horizontal">TITLE</p>
 
         <ion-list [inset]="true">

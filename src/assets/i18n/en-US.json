@@ -14,5 +14,7 @@
   "logout": "Log out",
   "logoutAlertHeader": "Confirm log out?",
   "settings": "Settings",
-  "profile": "Profile"
+  "profile": "Profile",
+  "notifications": "Notifications",
+  "notifications-page": "Page"
 }

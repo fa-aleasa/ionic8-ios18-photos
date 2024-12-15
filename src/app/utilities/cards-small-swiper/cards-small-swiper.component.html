@@ -1,7 +1,7 @@
 <ion-buttons class="ion-padding">
-  <ion-button fill="clear" class="subtitle">
+  <ion-button fill="clear" class="subtitle" (click)="modal()">
     <h2>
-      <ion-text class="middle" color="dark">Small Cards</ion-text>
+      <ion-text class="middle" color="dark">{{ label | translate }}</ion-text>
       <ion-icon class="middle" color="medium" name="chevron-forward"></ion-icon>
     </h2>
   </ion-button>
@@ -16,9 +16,10 @@
     <ion-card [style.background]="'url(assets/images/01.jpg)'">
       <ion-card-header>
         <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text">Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle class="primary-text"
+          >Card Subtitle</ion-card-subtitle
+        >
       </ion-card-header>
-
     </ion-card>
   </swiper-slide>
 
@@ -26,9 +27,10 @@
     <ion-card [style.background]="'url(assets/images/02.jpg)'">
       <ion-card-header>
         <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text">Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle class="primary-text"
+          >Card Subtitle</ion-card-subtitle
+        >
       </ion-card-header>
-
     </ion-card>
   </swiper-slide>
 
@@ -36,9 +38,10 @@
     <ion-card [style.background]="'url(assets/images/03.jpg)'">
       <ion-card-header>
         <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text">Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle class="primary-text"
+          >Card Subtitle</ion-card-subtitle
+        >
       </ion-card-header>
-
     </ion-card>
   </swiper-slide>
 
@@ -46,9 +49,10 @@
     <ion-card [style.background]="'url(assets/images/04.jpg)'">
       <ion-card-header>
         <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text">Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle class="primary-text"
+          >Card Subtitle</ion-card-subtitle
+        >
       </ion-card-header>
-
     </ion-card>
   </swiper-slide>
 
@@ -56,10 +60,10 @@
     <ion-card [style.background]="'url(assets/images/05.jpg)'">
       <ion-card-header>
         <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text">Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle class="primary-text"
+          >Card Subtitle</ion-card-subtitle
+        >
       </ion-card-header>
-
     </ion-card>
   </swiper-slide>
-
 </swiper-container>

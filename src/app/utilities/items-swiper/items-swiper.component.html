@@ -1,7 +1,9 @@
 <ion-buttons class="ion-padding">
-  <ion-button fill="clear" class="subtitle">
+  <ion-button fill="clear" class="subtitle" (click)="modal()">
     <h2>
-      <ion-text class="middle" color="dark">Items Swiper</ion-text>
+      <ion-text class="middle" color="dark">{{
+        content.label | translate
+      }}</ion-text>
       <ion-icon class="middle" color="medium" name="chevron-forward"></ion-icon>
     </h2>
   </ion-button>
@@ -12,53 +14,17 @@
   [slidesPerView]="1"
   [modules]="swiperModules"
 >
+  @for (list of items; track $index) {
   <swiper-slide>
     <ion-list [inset]="true" class="ion-no-margin">
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>General</ion-label>
-        <ion-note slot="end">6</ion-note>
+      @for (item of list; track $index) {
+      <ion-item button detail="{{ item.detail }}" [routerLink]="['/home']" [queryParams]="{modal: item.modalName}">
+        <ion-icon slot="start" size="small" name="{{ item.icon }}"  class="{{ item.color }}"></ion-icon>
+        <ion-label>{{ item.name }}</ion-label>
+        <ion-note slot="end">{{ item.note }}</ion-note>
       </ion-item>
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>Shopping</ion-label>
-        <ion-note slot="end">15</ion-note>
-      </ion-item>
-      <ion-item button detail="false">
-        <ion-icon  slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>Cleaning</ion-label>
-        <ion-note slot="end">3</ion-note>
-      </ion-item>
-      <ion-item button detail="false">
-        <ion-icon  slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>Reminders</ion-label>
-        <ion-note slot="end">8</ion-note>
-      </ion-item>
+      }
     </ion-list>
   </swiper-slide>
-
-  <swiper-slide>
-    <ion-list [inset]="true" class="ion-no-margin">
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>General</ion-label>
-        <ion-note slot="end">6</ion-note>
-      </ion-item>
-      <ion-item button detail="false">
-        <ion-icon slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>Shopping</ion-label>
-        <ion-note slot="end">15</ion-note>
-      </ion-item>
-      <ion-item button detail="false">
-        <ion-icon  slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>Cleaning</ion-label>
-        <ion-note slot="end">3</ion-note>
-      </ion-item>
-      <ion-item button detail="false">
-        <ion-icon  slot="start" name="list-circle" size="small"></ion-icon>
-        <ion-label>Reminders</ion-label>
-        <ion-note slot="end">8</ion-note>
-      </ion-item>
-    </ion-list>
-  </swiper-slide>
+  }
 </swiper-container>

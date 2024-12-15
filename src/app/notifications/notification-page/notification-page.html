@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="page-toolbar">
+    <ion-title>{{'notifications-page' | translate}}</ion-title>
+
+      <ion-buttons slot="start">
+        <ion-back-button color="dark" text="" icon="arrow-back-circle" class="back-btn"></ion-back-button>
+      </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" class="close-btn">
+        <ion-icon color="dark" slot="icon-only" name="close-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p class="ion-margin-horizontal">
+    TITLE
+  </p>
+  <ion-list [inset]="true" class="ion-no-margin">
+    <ion-item button detail="false">
+      <ion-icon slot="start" name="list" size="small"></ion-icon>
+      <ion-label>msgs</ion-label>
+      <ion-note slot="end">3</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

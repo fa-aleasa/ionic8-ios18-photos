@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { SettingsNavPage } from '../settings/settings.page';
 import { SettingsService } from '../core/bootstrap/settings.service';
-import { SettingsProfileComponent } from '../settings/settings-profile/settings-profile.component';
 import { TranslateService } from '@ngx-translate/core';
+import { AppModal } from '../app.modal';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,17 +16,97 @@ export class HomePage {
   appLang: string = this.settings.options.language;
   appMode: string = this.settings.options.mode;
 
+  itemsContent = {
+    label: 'items',
+    items: [
+      {
+        icon: 'list',
+        color: 'danger',
+        name: 'list',
+        detail: false,
+        note: '2',
+        modalName:'SettingsHome'
+      },
+      {
+        icon: 'list-circle',
+        color: '',
+        name: 'item',
+        detail: false,
+        note: '8',
+        modalName:'SettingsHome'
+      },
+      {
+        icon: 'list-circle',
+        color: '',
+        name: 'item',
+        detail: false,
+        note: '8',
+        modalName:'SettingsHome'
+      },
+      {
+        icon: 'list-circle',
+        color: '',
+        name: 'item',
+        detail: false,
+        note: '8',
+        modalName:'SettingsHome'
+      },
+      {
+        icon: 'list-circle',
+        color: '',
+        name: 'item',
+        detail: false,
+        note: '8',
+        modalName:'SettingsHome'
+      },
+      {
+        icon: 'list-circle',
+        color: '',
+        name: 'item',
+        detail: false,
+        note: '8',
+        modalName:'SettingsHome'
+      },
+      {
+        icon: 'list-circle',
+        color: '',
+        name: 'item',
+        detail: false,
+        note: '8',
+        modalName:'SettingsHome'
+      },
+    ],
+  };
+
   constructor(
     private modalCtrl: ModalController,
     private alertController: AlertController,
     private settings: SettingsService,
-    public translate: TranslateService
-  ) {}
-
-  async openSettingsModal() {
-    const modal = await this.modalCtrl.create({
-      component: SettingsNavPage,
+    private translate: TranslateService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    this.activatedRoute.queryParamMap.subscribe(queryParams => {
+      let modalName = queryParams.get('modal');
+      if (modalName !== null) {
+        this.openAppModal(modalName);
+        modalName = null;
+      }
     });
+  }
+
+  async openAppModal(name: any) {
+    let present;
+    if(name === 'MoreInfo') {
+      present = document.getElementById('main-content')!
+    }
+
+    const modal = await this.modalCtrl.create({
+      component: AppModal,
+      componentProps: { componentName: name },
+      presentingElement: present,
+    });
+    this.router.navigate([]);
     modal.present();
 
     const { data, role } = await modal.onWillDismiss();
@@ -39,16 +119,7 @@ export class HomePage {
   async openProfileModal() {
     this.dismissSettingsModal();
     setTimeout(async () => {
-      const modal = await this.modalCtrl.create({
-        component: SettingsProfileComponent,
-      });
-      modal.present();
-
-      const { data, role } = await modal.onWillDismiss();
-
-      if (role === 'confirm') {
-        // this.message = `Hello, ${data}!`;
-      }
+      this.openAppModal('SettingsProfile');
     }, 300);
   }
 
@@ -67,7 +138,7 @@ export class HomePage {
 
   handleModeChange(e: any) {
     this.settings.changeMode(e.detail.value);
-}
+  }
 
   async logout() {
     let okText = this.translate.instant('logout');

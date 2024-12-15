@@ -29,7 +29,7 @@ export class PreloaderService {
     if (el) {
       el.addEventListener('transitionend', () => {
         el.className = 'global-loader-hidden';
-        // el.remove();
+        el.remove();
       });
 
       if (!el.classList.contains('global-loader-hidden')) {

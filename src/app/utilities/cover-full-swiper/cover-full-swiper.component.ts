@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { IonicSlides } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
@@ -9,12 +9,9 @@ register();
   templateUrl: './cover-full-swiper.component.html',
   styleUrls: ['./cover-full-swiper.component.scss'],
 })
-export class CoverFullSwiperComponent  implements OnInit {
+export class CoverFullSwiperComponent {
 
   swiperModules = [IonicSlides];
 
   constructor() { }
-
-  ngOnInit() {}
-
 }

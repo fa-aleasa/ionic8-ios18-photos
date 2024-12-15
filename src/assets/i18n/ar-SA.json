@@ -14,5 +14,7 @@
   "logout": "تسجيل الخروج",
   "logoutAlertHeader": "تأكيد تسجيل الخروج؟",
   "settings": "اعدادات",
-  "profile": "الملف الشخصي"
+  "profile": "الملف الشخصي",
+  "notifications": "التنبيهات",
+  "notifications-page": "صفحة"
 }
