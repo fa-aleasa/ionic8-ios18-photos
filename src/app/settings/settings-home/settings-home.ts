@@ -10,19 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./settings-home.scss'],
 })
 export class SettingsHome {
-
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  constructor(
-    public translate: TranslateService,
-    private nav: IonNav,
-    private modalCtrl: ModalController
-  ) {}
+  constructor(private nav: IonNav, private modalCtrl: ModalController) {}
 
   navigateToProfile() {
-    this.nav.push(SettingsProfile,{isStandalone: false, back: 'settings'});
+    this.nav.push(SettingsProfile, { isStandalone: false, back: 'settings' });
   }
-
 }

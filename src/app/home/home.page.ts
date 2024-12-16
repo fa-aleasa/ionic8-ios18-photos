@@ -88,16 +88,18 @@ export class HomePage {
   ) {
     this.activatedRoute.queryParamMap.subscribe(queryParams => {
       let modalName = queryParams.get('modal');
+      let isPresenting = queryParams.get('present');
       if (modalName !== null) {
-        this.openAppModal(modalName);
+        this.openAppModal(modalName, isPresenting);
         modalName = null;
+        isPresenting = null;
       }
     });
   }
 
-  async openAppModal(name: any) {
+  async openAppModal(name: any, isPresenting?: any) {
     let present;
-    if(name === 'MoreInfo') {
+    if(isPresenting === 'true' || isPresenting === true) {
       present = document.getElementById('main-content')!
     }
 

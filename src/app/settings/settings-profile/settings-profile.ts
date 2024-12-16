@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { IonNav, ModalController } from '@ionic/angular';
+import { Component, Input } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'settings-profile',
@@ -7,7 +7,6 @@ import { IonNav, ModalController } from '@ionic/angular';
   styleUrls: ['./settings-profile.scss'],
 })
 export class SettingsProfile {
-  @ViewChild('settingNav') private nav!: IonNav;
 
   @Input() isStandalone: boolean = true;
 
@@ -15,5 +14,5 @@ export class SettingsProfile {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  constructor(private modalCtrl: ModalController,) { }
+  constructor(private modalCtrl: ModalController) {}
 }

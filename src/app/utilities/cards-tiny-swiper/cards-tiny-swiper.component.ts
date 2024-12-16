@@ -1,35 +1,33 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
-import { IonicSlides, ModalController } from '@ionic/angular';
+import { IonicSlides, IonModal } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
 register();
 
-import { ModalTinySwiper } from './modal-tiny-swiper/modal-tiny-swiper';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-cards-tiny-swiper',
   templateUrl: './cards-tiny-swiper.component.html',
   styleUrls: ['./cards-tiny-swiper.component.scss'],
 })
-export class CardsTinySwiperComponent {
+export class CardsTinySwiperComponent implements OnInit {
   swiperModules = [IonicSlides];
 
+  presentingElement: any = null;
+  @ViewChild(IonModal) modal!: IonModal;
   @Input() label: string = 'label';
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor() {}
 
-  async modal() {
-    const modal = await this.modalCtrl.create({
-      component: ModalTinySwiper,
-      componentProps: { title: this.label },
-      presentingElement: document.getElementById('main-content')!,
-    });
-    modal.present();
+  ngOnInit() {
+    this.presentingElement = document.getElementById('main-content');
+  }
 
-    const { data, role } = await modal.onWillDismiss();
-
-    if (role === 'confirm') {
-      // this.message = `Hello, ${data}!`;
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+      console.log(`Hello, ${ev.detail.data}!`);
     }
   }
 }

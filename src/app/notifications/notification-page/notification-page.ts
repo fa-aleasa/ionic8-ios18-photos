@@ -7,10 +7,9 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./notification-page.scss'],
 })
 export class NotificationPage {
-
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  constructor(private modalCtrl: ModalController,) { }
+  constructor(private modalCtrl: ModalController) {}
 }

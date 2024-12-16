@@ -7,10 +7,9 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./modal-more-info.scss'],
 })
 export class ModalMoreInfo {
-
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  constructor(private modalCtrl: ModalController,) { }
+  constructor(private modalCtrl: ModalController) {}
 }

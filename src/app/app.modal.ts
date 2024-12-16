@@ -7,7 +7,7 @@ import { NotificationsHome } from './notifications/notifications-home/notificati
 import { SettingsProfile } from './settings/settings-profile/settings-profile';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-modal',
   template: ` <ion-nav [root]="component" #appModal></ion-nav> `,
 })
 export class AppModal implements OnInit {

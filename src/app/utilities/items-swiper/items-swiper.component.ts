@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
-import { IonicSlides, ModalController } from '@ionic/angular';
+import { IonicSlides, IonModal } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
 register();
 
-import { ModalItemsSwiper } from './modal-items-swiper/modal-items-swiper';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-items-swiper',
@@ -23,32 +23,28 @@ export class ItemsSwiperComponent implements OnInit {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
-      }
+        modalName: 'SettingsHome',
+      },
     ],
   };
-
   items: any[] = [];
 
-  constructor(private modalCtrl: ModalController) {}
+  presentingElement: any = null;
+  @ViewChild(IonModal) modal!: IonModal;
+  @Input() label: string = 'label';
 
-  async modal() {
-    const modal = await this.modalCtrl.create({
-      component: ModalItemsSwiper,
-      componentProps: { content: this.content },
-      presentingElement: document.getElementById('main-content')!,
-    });
-    modal.present();
-
-    const { data, role } = await modal.onWillDismiss();
-
-    if (role === 'confirm') {
-      // this.message = `Hello, ${data}!`;
-    }
-  }
+  constructor() {}
 
   ngOnInit() {
     this.items = this.groupByFour(this.content.items);
+    this.presentingElement = document.getElementById('main-content');
+  }
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+      console.log(`Hello, ${ev.detail.data}!`);
+    }
   }
 
   groupByFour(data: any[]) {
