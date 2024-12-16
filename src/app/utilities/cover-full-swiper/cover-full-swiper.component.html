@@ -1,169 +1,54 @@
-<swiper-container
-  [spaceBetween]="0"
-  [slidesPerView]="1"
-  [modules]="swiperModules"
-  [loop]="true"
-  [pagination]="true"
-  autoplay="true"
-  [autoplay]="{ delay: 5000 }"
->
+<swiper-container init="false" #swiper>
+  @for (item of content; track $index) {
   <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/02.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-
-      <ion-card-content class="primary-text">
-        Here's a small text description for the card content. Nothing more,
-        nothing less.
-      </ion-card-content>
-
-      <ion-row class="card-footer">
+    <ion-card [style.background]="item.background" [style]="cardStyle">
+      <ion-row
+        class="swiperCard {{ props.align }}"
+        [ngClass]="{
+          'text-center': props.center === true,
+          'btn-padding': item.hasButton === true
+        }"
+      >
         <ion-col>
-          <ion-button
-            fill="clear"
-            class="subtitle primary-text"
-            [routerLink]="['/home']"
-            [queryParams]="{ modal: 'MoreInfo', present: 'true' }"
-          >
-            <h2>
-              <ion-text class="middle">More info</ion-text>
-              <ion-icon class="middle" name="chevron-forward"></ion-icon>
-            </h2>
-          </ion-button>
+          @if (item.subtitle !== '' || item.title !== '') {
+          <ion-card-header>
+            @if (item.title !== '') {
+            <ion-card-title class="primary-text">{{
+              item.title
+            }}</ion-card-title>
+            } @if (item.subtitle !== '') {
+            <ion-card-subtitle class="primary-text">{{
+              item.subtitle
+            }}</ion-card-subtitle>
+            }
+          </ion-card-header>
+          } @if (item.detail !== '') {
+          <ion-card-content class="primary-text">
+            {{ item.detail }}
+          </ion-card-content>
+          }
         </ion-col>
+        @if (item.hasButton === true) {
+        <ion-row class="card-footer" [style.bottom]="'30px'">
+          <ion-col>
+            <ion-button
+              fill="clear"
+              class="subtitle primary-text"
+              [routerLink]="item.button.routerLink"
+              [queryParams]="item.button.queryParams"
+            >
+              <h2>
+                <ion-text class="middle">{{
+                  item.button.label | translate
+                }}</ion-text>
+                <ion-icon class="middle" name="chevron-forward"></ion-icon>
+              </h2>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        }
       </ion-row>
     </ion-card>
   </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/04.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-
-      <ion-card-content class="primary-text">
-        Here's a small text description for the card content. Nothing more,
-        nothing less.
-      </ion-card-content>
-
-      <ion-row class="card-footer">
-        <ion-col>
-          <ion-button
-            fill="clear"
-            class="subtitle primary-text"
-            [routerLink]="['/home']"
-            [queryParams]="{ modal: 'MoreInfo', present: true }"
-          >
-            <h2>
-              <ion-text class="middle">More info</ion-text>
-              <ion-icon class="middle" name="chevron-forward"></ion-icon>
-            </h2>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/03.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-
-      <ion-card-content class="primary-text">
-        Here's a small text description for the card content. Nothing more,
-        nothing less.
-      </ion-card-content>
-
-      <ion-row class="card-footer">
-        <ion-col>
-          <ion-button
-            fill="clear"
-            class="subtitle primary-text"
-            [routerLink]="['/home']"
-            [queryParams]="{ modal: 'MoreInfo', present: true }"
-          >
-            <h2>
-              <ion-text class="middle">More info</ion-text>
-              <ion-icon class="middle" name="chevron-forward"></ion-icon>
-            </h2>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/05.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-
-      <ion-card-content class="primary-text">
-        Here's a small text description for the card content. Nothing more,
-        nothing less.
-      </ion-card-content>
-
-      <ion-row class="card-footer">
-        <ion-col>
-          <ion-button
-            fill="clear"
-            class="subtitle primary-text"
-            [routerLink]="['/home']"
-            [queryParams]="{ modal: 'MoreInfo', present: true }"
-          >
-            <h2>
-              <ion-text class="middle">More info</ion-text>
-              <ion-icon class="middle" name="chevron-forward"></ion-icon>
-            </h2>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/01.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-
-      <ion-card-content class="primary-text">
-        Here's a small text description for the card content. Nothing more,
-        nothing less.
-      </ion-card-content>
-
-      <ion-row class="card-footer">
-        <ion-col>
-          <ion-button
-            fill="clear"
-            class="subtitle primary-text"
-            [routerLink]="['/home']"
-            [queryParams]="{ modal: 'MoreInfo', present: true }"
-          >
-            <h2>
-              <ion-text class="middle">More info</ion-text>
-              <ion-icon class="middle" name="chevron-forward"></ion-icon>
-            </h2>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </swiper-slide>
+  }
 </swiper-container>

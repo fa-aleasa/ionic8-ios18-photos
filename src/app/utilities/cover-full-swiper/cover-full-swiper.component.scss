@@ -1,5 +1,4 @@
 ion-card {
-  height: 50vh !important;
   width: 100% !important;
   margin: 0px !important;
   box-shadow: none;
@@ -18,4 +17,32 @@ ion-card {
   position: absolute;
   bottom: 30px;
   width: 100%;
+}
+
+.swiperCard {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+//---------------------------------------------------
+
+.btn-padding {
+  padding-bottom: 70px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.start {
+  align-items: start;
+}
+
+.mid {
+  align-items: center;
+}
+
+.end {
+  align-items: end;
 }

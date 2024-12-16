@@ -39,9 +39,11 @@ ion-toolbar {
   --border-width: 0 !important;
   border: none;
 }
-.page-toolbar {
+.toolbar-padding-vertical {
   padding-bottom: 4px !important;
   padding-top: calc(var(--ion-safe-area-top) + 4px) !important;
+}
+.toolbar-padding-horizontal {
   padding-right: calc(var(--ion-safe-area-right) + 8px) !important;
   padding-left: calc(var(--ion-safe-area-left) + 8px) !important;
 }

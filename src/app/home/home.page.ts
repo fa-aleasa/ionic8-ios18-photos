@@ -16,6 +16,82 @@ export class HomePage {
   appLang: string = this.settings.options.language;
   appMode: string = this.settings.options.mode;
 
+  //-------------------------------------------------------------------------------
+  // FULLSWIPER COMPONENET
+  fullSwiperProps = {
+    pagination: true,
+    loop: true,
+    autoplay: 3000,
+    height: 50,
+    align: 'end',
+    center: false,
+  };
+  fullSwiperContent = [
+    {
+      background: 'url(assets/images/02.jpg)',
+      title: 'Card Title',
+      subtitle: 'Card Subtitle',
+      detail:
+        'Heres a small text description for the card content. Nothing more, nothing less.',
+      hasButton: true,
+      button: {
+        label: 'More info',
+        routerLink: ['/home'],
+        queryParams: { modal: 'MoreInfo', present: 'true' },
+      },
+    },
+    {
+      background: 'url(assets/images/01.jpg)',
+      title: '',
+      subtitle: '',
+      detail:
+        'Heres a small text description for the card content. Nothing more, nothing less.',
+      hasButton: false,
+      button: {
+        label: 'More info',
+        routerLink: ['/home'],
+        queryParams: { modal: 'MoreInfo', present: 'true' },
+      },
+    },
+    {
+      background: 'url(assets/images/03.jpg)',
+      title: '',
+      subtitle: '',
+      detail: '',
+      hasButton: false,
+      button: {
+        label: 'More info',
+        routerLink: ['/home'],
+        queryParams: { modal: 'MoreInfo', present: 'true' },
+      },
+    },
+    {
+      background: 'url(assets/images/04.jpg)',
+      title: 'Card Title',
+      subtitle: '',
+      detail: '',
+      hasButton: false,
+      button: {
+        label: 'More info',
+        routerLink: ['/home'],
+        queryParams: { modal: 'MoreInfo', present: 'true' },
+      },
+    },
+    {
+      background: 'url(assets/images/05.jpg)',
+      title: '',
+      subtitle: 'Card Subtitle',
+      detail: '',
+      hasButton: false,
+      button: {
+        label: 'More info',
+        routerLink: ['/home'],
+        queryParams: { modal: 'MoreInfo', present: 'true' },
+      },
+    },
+  ];
+  //-------------------------------------------------------------------------------
+  // ITEMS COMPONENET
   itemsContent = {
     label: 'items',
     items: [
@@ -25,7 +101,7 @@ export class HomePage {
         name: 'list',
         detail: false,
         note: '2',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
       {
         icon: 'list-circle',
@@ -33,7 +109,7 @@ export class HomePage {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
       {
         icon: 'list-circle',
@@ -41,7 +117,7 @@ export class HomePage {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
       {
         icon: 'list-circle',
@@ -49,7 +125,7 @@ export class HomePage {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
       {
         icon: 'list-circle',
@@ -57,7 +133,7 @@ export class HomePage {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
       {
         icon: 'list-circle',
@@ -65,7 +141,7 @@ export class HomePage {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
       {
         icon: 'list-circle',
@@ -73,10 +149,11 @@ export class HomePage {
         name: 'item',
         detail: false,
         note: '8',
-        modalName:'SettingsHome'
+        modalName: 'SettingsHome',
       },
     ],
   };
+  //-------------------------------------------------------------------------------
 
   constructor(
     private modalCtrl: ModalController,
@@ -86,7 +163,7 @@ export class HomePage {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.activatedRoute.queryParamMap.subscribe(queryParams => {
+    this.activatedRoute.queryParamMap.subscribe((queryParams) => {
       let modalName = queryParams.get('modal');
       let isPresenting = queryParams.get('present');
       if (modalName !== null) {
@@ -99,8 +176,8 @@ export class HomePage {
 
   async openAppModal(name: any, isPresenting?: any) {
     let present;
-    if(isPresenting === 'true' || isPresenting === true) {
-      present = document.getElementById('main-content')!
+    if (isPresenting === 'true' || isPresenting === true) {
+      present = document.getElementById('main-content')!;
     }
 
     const modal = await this.modalCtrl.create({

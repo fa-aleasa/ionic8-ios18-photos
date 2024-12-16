@@ -14,8 +14,10 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class ItemsSwiperComponent implements OnInit {
   swiperModules = [IonicSlides];
 
+  //-------------------------------------------------------------------------------
+  // BASICS DATA
   @Input() content = {
-    label: 'items',
+    label: 'label',
     items: [
       {
         icon: 'list-circle',
@@ -27,6 +29,8 @@ export class ItemsSwiperComponent implements OnInit {
       },
     ],
   };
+  //-------------------------------------------------------------------------------
+
   items: any[] = [];
 
   presentingElement: any = null;
