@@ -7,6 +7,19 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./modal-more-info.scss'],
 })
 export class ModalMoreInfo {
+
+  @Input() content = {
+    label: '',
+    items: [
+      {
+        title: 'Card Title',
+        BodyStart: 'Heres a small text description for the card content. Nothing more, nothing less.',
+        img: 'assets/images/01.jpg',
+        BodyEnd: 'Heres a small text description for the card content. Nothing more, nothing less.',
+      },
+    ],
+  };
+
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }

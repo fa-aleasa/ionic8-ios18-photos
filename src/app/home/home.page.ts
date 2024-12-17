@@ -37,7 +37,7 @@ export class HomePage {
       button: {
         label: 'More info',
         routerLink: ['/home'],
-        queryParams: { modal: 'MoreInfo', present: 'true' },
+        queryParams: { modal: 'MoreInfo', present: 'true', params: JSON.stringify({content: {label: 'info'}}) },
       },
     },
     {
@@ -90,6 +90,285 @@ export class HomePage {
       },
     },
   ];
+  //-------------------------------------------------------------------------------
+  // TINYSWIPER COMPONENET
+  tinySwiperContent = {
+    label: 'Tiny cards',
+    items: [
+      {
+        background: '',
+        color: 'primary',
+        title: 'Card Title',
+        icon: 'navigate-circle',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: '',
+        color: 'danger',
+        title: 'Card Title',
+        icon: '',
+        img: 'assets/images/01.jpg',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/01.jpg)',
+        color: 'primary',
+        title: 'Card Title',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/02.jpg)',
+        color: '',
+        title: 'Card Title',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/03.jpg)',
+        color: '',
+        title: 'Card Title',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/04.jpg)',
+        color: '',
+        title: 'Card Title',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/05.jpg)',
+        color: '',
+        title: 'Card Title',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+    ],
+  };
+  //-------------------------------------------------------------------------------
+  // BIGSWIPER COMPONENET
+  bigSwiperProps = {
+    height: 160,
+  };
+  bigSwiperContent = {
+    label: 'Big cards',
+    items: [
+      {
+        background: '',
+        color: 'primary',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description',
+        icon: 'navigate-circle',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: '',
+        color: 'danger',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description for the',
+        icon: '',
+        img: 'assets/images/02.jpg',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/01.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description for the card content.',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/02.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description for the card content.',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/03.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description for the card content.',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/04.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description for the card content.',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/05.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        detail: 'Heres a small text description for the card content.',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+    ],
+  };
+  //-------------------------------------------------------------------------------
+  // SMALLSWIPER COMPONENET
+  smallSwiperProps = {
+    height: 160,
+  };
+  smallSwiperContent = {
+    label: 'Small cards',
+    items: [
+      {
+        background: '',
+        color: 'primary',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: 'navigate-circle',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: '',
+        color: 'danger',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: '',
+        img: 'assets/images/02.jpg',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/01.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/02.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/03.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/04.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+      {
+        background: 'url(assets/images/05.jpg)',
+        color: '',
+        title: 'Card Title',
+        subtitle: 'Card Subtitle',
+        icon: '',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+    ],
+  };
   //-------------------------------------------------------------------------------
   // ITEMS COMPONENET
   itemsContent = {
@@ -166,15 +445,16 @@ export class HomePage {
     this.activatedRoute.queryParamMap.subscribe((queryParams) => {
       let modalName = queryParams.get('modal');
       let isPresenting = queryParams.get('present');
+      let params = queryParams.get('params');
       if (modalName !== null) {
-        this.openAppModal(modalName, isPresenting);
+        this.openAppModal(modalName, isPresenting, params);
         modalName = null;
         isPresenting = null;
       }
     });
   }
 
-  async openAppModal(name: any, isPresenting?: any) {
+  async openAppModal(name: any, isPresenting?: any, params?: any) {
     let present;
     if (isPresenting === 'true' || isPresenting === true) {
       present = document.getElementById('main-content')!;
@@ -182,7 +462,7 @@ export class HomePage {
 
     const modal = await this.modalCtrl.create({
       component: AppModal,
-      componentProps: { componentName: name },
+      componentProps: { componentName: name, componentParam: JSON.parse(params) },
       presentingElement: present,
     });
     this.router.navigate([]);

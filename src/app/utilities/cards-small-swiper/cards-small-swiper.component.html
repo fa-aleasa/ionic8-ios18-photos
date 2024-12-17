@@ -1,7 +1,9 @@
 <ion-buttons class="ion-padding">
   <ion-button fill="clear" class="subtitle" id="small-swiper-modal">
     <h2>
-      <ion-text class="middle" color="dark">{{ label | translate }}</ion-text>
+      <ion-text class="middle" color="dark">{{
+        content.label | translate
+      }}</ion-text>
       <ion-icon class="middle" color="medium" name="chevron-forward"></ion-icon>
     </h2>
   </ion-button>
@@ -12,107 +14,144 @@
   [slidesPerView]="1.5"
   [modules]="swiperModules"
 >
+  @for (item of content.items; track $index) {
   <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/01.jpg)'">
+    <ion-card
+      [style]="cardStyle"
+      [style.background]="item.background"
+      [color]="item.color"
+      button
+      [routerLink]="item.button.routerLink"
+      [queryParams]="item.button.queryParams"
+    >
+      @if (item.icon !== '' || item.img !== '') {
+      <ion-row [style]="cardStyle">
+        <ion-col size="8">
+          @if (item.title !== '' || item.subtitle !== '') {
+          <ion-card-header class="no-padding-end">
+            @if (item.title !== '') {
+            <ion-card-title class="primary-text">{{
+              item.title | translate
+            }}</ion-card-title>
+            } @if (item.subtitle !== '') {
+            <ion-card-subtitle class="primary-text">{{
+              item.subtitle | translate
+            }}</ion-card-subtitle>
+            }
+          </ion-card-header>
+          }
+        </ion-col>
+        <ion-col size="4" class="ion-align-self-center">
+          @if (item.icon !== '') {
+          <ion-icon [name]="item.icon" class="primary-text icon-lg"></ion-icon>
+          } @if (item.img !== '') {
+          <img [src]="item.img" class="ion-padding-end" />
+          }
+        </ion-col>
+      </ion-row>
+      } @if (item.icon === '' && item.img === '') { @if (item.title !== '' ||
+      item.subtitle !== '') {
       <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
+        @if (item.title !== '') {
+        <ion-card-title class="primary-text">{{
+          item.title | translate
+        }}</ion-card-title>
+        } @if (item.subtitle !== '') {
+        <ion-card-subtitle class="primary-text">{{
+          item.subtitle | translate
+        }}</ion-card-subtitle>
+        }
       </ion-card-header>
+      } }
     </ion-card>
   </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/02.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/03.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/04.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card [style.background]="'url(assets/images/05.jpg)'">
-      <ion-card-header>
-        <ion-card-title class="primary-text">Card Title</ion-card-title>
-        <ion-card-subtitle class="primary-text"
-          >Card Subtitle</ion-card-subtitle
-        >
-      </ion-card-header>
-    </ion-card>
-  </swiper-slide>
+  }
 </swiper-container>
 
-
-<ion-modal trigger="small-swiper-modal" (willDismiss)="onWillDismiss($event)" [presentingElement]="presentingElement">
+<ion-modal
+  trigger="small-swiper-modal"
+  (willDismiss)="onWillDismiss($event)"
+  [presentingElement]="presentingElement"
+>
   <ng-template>
     <ion-header>
       <ion-toolbar>
-
-        <ion-title>{{ label | translate }}</ion-title>
+        <ion-title>{{ content.label | translate }}</ion-title>
 
         <ion-buttons slot="end">
           <ion-button (click)="modal.dismiss()" class="close-btn">
-            <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
+            <ion-icon
+              slot="icon-only"
+              name="close-circle"
+              color="dark"
+            ></ion-icon>
           </ion-button>
         </ion-buttons>
-
       </ion-toolbar>
     </ion-header>
 
     <ion-content class="ion-padding">
-
       <ion-row>
         <ion-col class="ion-padding-bottom">
-          <ion-card [style.background]="'url(assets/images/01.jpg)'">
-            <ion-card-header>
-              <ion-card-title class="primary-text">Card Title</ion-card-title>
-              <ion-card-subtitle class="primary-text"
-                >Card Subtitle</ion-card-subtitle
+          @for (item of content.items; track $index) {
+          <ion-row>
+            <ion-col class="ion-margin-bottom">
+              <ion-card
+                [style]="cardStyle"
+                [style.background]="item.background"
+                [color]="item.color"
+                button
+                [routerLink]="item.button.routerLink"
+                [queryParams]="item.button.queryParams"
               >
-            </ion-card-header>
-          </ion-card>
+                @if (item.icon !== '' || item.img !== '') {
+                <ion-row [style]="cardStyle">
+                  <ion-col size="8">
+                    @if (item.title !== '' || item.subtitle !== '') {
+                    <ion-card-header class="no-padding-end">
+                      @if (item.title !== '') {
+                      <ion-card-title class="primary-text">{{
+                        item.title | translate
+                      }}</ion-card-title>
+                      } @if (item.subtitle !== '') {
+                      <ion-card-subtitle class="primary-text">{{
+                        item.subtitle | translate
+                      }}</ion-card-subtitle>
+                      }
+                    </ion-card-header>
+                    }
+                  </ion-col>
+                  <ion-col size="4" class="ion-align-self-center">
+                    @if (item.icon !== '') {
+                    <ion-icon
+                      [name]="item.icon"
+                      class="primary-text icon-lg"
+                    ></ion-icon>
+                    } @if (item.img !== '') {
+                    <img [src]="item.img" class="ion-padding-end" />
+                    }
+                  </ion-col>
+                </ion-row>
+                } @if (item.icon === '' && item.img === '') { @if (item.title
+                !== '' || item.subtitle !== '') {
+                <ion-card-header>
+                  @if (item.title !== '') {
+                  <ion-card-title class="primary-text">{{
+                    item.title | translate
+                  }}</ion-card-title>
+                  } @if (item.subtitle !== '') {
+                  <ion-card-subtitle class="primary-text">{{
+                    item.subtitle | translate
+                  }}</ion-card-subtitle>
+                  }
+                </ion-card-header>
+                } }
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          }
         </ion-col>
       </ion-row>
-
-      <ion-row>
-        <ion-col class="ion-padding-bottom">
-          <ion-card [style.background]="'url(assets/images/01.jpg)'">
-            <ion-card-header>
-              <ion-card-title class="primary-text">Card Title</ion-card-title>
-              <ion-card-subtitle class="primary-text"
-                >Card Subtitle</ion-card-subtitle
-              >
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-
     </ion-content>
   </ng-template>
 </ion-modal>

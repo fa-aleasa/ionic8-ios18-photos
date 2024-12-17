@@ -10,7 +10,9 @@
         <img src="assets/p.jpg" class="profile-img">
       </ion-button> -->
 
-      <ion-chip [outline]="true" class="chip primary-chip">
+      <ion-chip button [outline]="true" class="chip primary-chip"
+      [routerLink]="['/home']" [queryParams]="{ modal: 'MoreInfo', present: 'true' }"
+      >
         <ion-icon name="navigate-circle" class="primary-text"></ion-icon>
         <ion-label class="primary-text">Jeddah</ion-label>
       </ion-chip>
@@ -39,25 +41,28 @@
     <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col>
-          <app-cover-full-swiper [content]="fullSwiperContent" [props]="fullSwiperProps"></app-cover-full-swiper>
+          <app-cover-full-swiper
+            [content]="fullSwiperContent"
+            [props]="fullSwiperProps"
+          ></app-cover-full-swiper>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <app-cards-tiny-swiper></app-cards-tiny-swiper>
+          <app-cards-tiny-swiper [content]="tinySwiperContent"></app-cards-tiny-swiper>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <app-cards-big-swiper></app-cards-big-swiper>
+          <app-cards-big-swiper [content]="bigSwiperContent" [props]="bigSwiperProps"></app-cards-big-swiper>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <app-cards-small-swiper></app-cards-small-swiper>
+          <app-cards-small-swiper [content]="smallSwiperContent" [props]="smallSwiperProps"></app-cards-small-swiper>
         </ion-col>
       </ion-row>
 

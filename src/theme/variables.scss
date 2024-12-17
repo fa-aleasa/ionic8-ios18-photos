@@ -108,6 +108,17 @@ ion-item ion-icon.danger {
 }
 // ------------------------------------
 // Me
+.no-padding-end {
+  padding-inline-end: 0px !important
+}
+.icon-lg {
+  display: unset;
+}
+hr {
+  border-bottom: 1px solid var(--ion-color-medium);
+  margin: 10px 0;
+  width: 100%;
+}
 .show-md {
   @media (width < 768px) {
     display: none;

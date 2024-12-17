@@ -1,17 +1,25 @@
 <ion-header>
   <ion-toolbar>
+    @if (content.label !== '') {
+    <ion-title>{{ content.label | translate }}</ion-title>
+    }
 
     <ion-buttons slot="end">
       <ion-button (click)="close()" class="close-btn">
         <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
       </ion-button>
     </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p class="ion-margin-horizontal">TITLE</p>
-
-
+  @for (item of content.items; track $index) {
+  <h1>{{item.title | translate}}</h1>
+  <ion-text>{{item.BodyStart | translate}}</ion-text>
+  <img [src]="item.img" class="ion-padding" />
+  <ion-text>{{item.BodyEnd | translate}}</ion-text>
+  <hr />
+  }
+  <br>
+  <!-- <p class="ion-margin-horizontal">TITLE</p> -->
 </ion-content>

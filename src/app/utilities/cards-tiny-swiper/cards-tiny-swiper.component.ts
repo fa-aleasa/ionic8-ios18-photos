@@ -16,7 +16,27 @@ export class CardsTinySwiperComponent implements OnInit {
 
   presentingElement: any = null;
   @ViewChild(IonModal) modal!: IonModal;
-  @Input() label: string = 'label';
+
+  //-------------------------------------------------------------------------------
+  // BASICS DATA
+  @Input() props = {};
+  @Input() content = {
+    label: 'label',
+    items: [
+      {
+        background: '',
+        color: 'primary',
+        title: 'Card Title',
+        icon: 'navigate-circle',
+        img: '',
+        button: {
+          routerLink: ['/home'],
+          queryParams: { modal: 'MoreInfo', present: 'false' },
+        },
+      },
+    ],
+  };
+  //-------------------------------------------------------------------------------
 
   constructor() {}
 

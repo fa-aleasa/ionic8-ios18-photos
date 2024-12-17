@@ -3,11 +3,12 @@ import {
   Component,
   ElementRef,
   Input,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 import { Autoplay, Pagination } from 'swiper/modules';
 
-// import { IonicSlides } from '@ionic/angular';
+import { IonicSlides } from '@ionic/angular';
 // import { register } from 'swiper/element/bundle';
 // register();
 
@@ -16,10 +17,9 @@ import { Autoplay, Pagination } from 'swiper/modules';
   templateUrl: './cover-full-swiper.component.html',
   styleUrls: ['./cover-full-swiper.component.scss'],
 })
-export class CoverFullSwiperComponent implements AfterViewInit {
+export class CoverFullSwiperComponent implements OnInit, AfterViewInit {
   @ViewChild('swiper') swiper!: ElementRef<any>;
-  swiperModules = [Autoplay, Pagination];
-  // swiperModules = [IonicSlides];
+  swiperModules = [IonicSlides, Autoplay, Pagination];
 
   //-------------------------------------------------------------------------------
   // BASICS DATA
@@ -62,14 +62,13 @@ export class CoverFullSwiperComponent implements AfterViewInit {
   ];
   //-------------------------------------------------------------------------------
 
-  constructor() {
+  ngOnInit() {
     this.cardStyle = 'height: ' + this.props.height + 'vh !important;';
   }
 
   ngAfterViewInit() {
     // swiper parameters
     let swiperParams = {
-      slidesPerView: 1,
       modules: this.swiperModules,
       pagination: this.props.pagination === true ? { clickable: true } : false,
     };

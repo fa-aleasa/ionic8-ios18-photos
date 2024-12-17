@@ -14,17 +14,17 @@
           <ion-card-header>
             @if (item.title !== '') {
             <ion-card-title class="primary-text">{{
-              item.title
+              item.title | translate
             }}</ion-card-title>
             } @if (item.subtitle !== '') {
             <ion-card-subtitle class="primary-text">{{
-              item.subtitle
+              item.subtitle | translate
             }}</ion-card-subtitle>
             }
           </ion-card-header>
           } @if (item.detail !== '') {
           <ion-card-content class="primary-text">
-            {{ item.detail }}
+            {{ item.detail | translate }}
           </ion-card-content>
           }
         </ion-col>

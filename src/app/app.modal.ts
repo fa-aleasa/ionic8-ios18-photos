@@ -8,13 +8,15 @@ import { SettingsProfile } from './settings/settings-profile/settings-profile';
 
 @Component({
   selector: 'app-modal',
-  template: ` <ion-nav [root]="component" #appModal></ion-nav> `,
+  template: ` <ion-nav [root]="component" [rootParams]="componentParams" #appModal></ion-nav> `,
 })
 export class AppModal implements OnInit {
   @ViewChild('appModal') private nav!: IonNav;
 
   component: any;
   @Input() componentName: string = '';
+  componentParams: any;
+  @Input() componentParam: any = '';
 
   constructor(private modalCtrl: ModalController, private platform: Platform) {
     this.platform.backButton.subscribeWithPriority(101, async () => {
@@ -32,6 +34,9 @@ export class AppModal implements OnInit {
     switch (this.componentName) {
       case 'MoreInfo':
         this.component = ModalMoreInfo;
+        if(this.componentParam !== '') {
+          this.componentParams = this.componentParam;
+        }
         break;
       case 'NotificationsHome':
         this.component = NotificationsHome;

@@ -31,13 +31,13 @@ export class ItemsSwiperComponent implements OnInit {
   };
   //-------------------------------------------------------------------------------
 
-  items: any[] = [];
-
   presentingElement: any = null;
   @ViewChild(IonModal) modal!: IonModal;
   @Input() label: string = 'label';
 
   constructor() {}
+
+  items: any[] = [];
 
   ngOnInit() {
     this.items = this.groupByFour(this.content.items);

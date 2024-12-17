@@ -1,7 +1,6 @@
 ion-card {
   width: 100% !important;
   margin: 0px !important;
-  height: 160px;
   box-shadow: none;
   border-radius: 20px;
 
@@ -22,6 +21,9 @@ swiper-slide {
   }
 }
 
+.card-height {
+  height: 160px;
+}
 //---------------------------------------------------
 // IF 1.x slidesPerView
 swiper-container:has(swiper-slide.swiper-slide-next) swiper-slide {
