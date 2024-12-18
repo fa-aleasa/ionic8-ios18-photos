@@ -4,11 +4,11 @@
     'toolbar-padding-vertical toolbar-padding-horizontal': isPresenting === false,
   }">
     @if (isStandalone === true) {
-    <ion-title size="large" class="title-med">{{
+    <ion-title size="large" class="title-med primary-text">{{
       "profile" | translate
     }}</ion-title>
     } @if (isStandalone === false) {
-    <ion-title>{{ "profile" | translate }}</ion-title>
+    <ion-title class="primary-text">{{ "profile" | translate }}</ion-title>
 
     <ion-buttons slot="start">
       <ion-back-button text="" icon="arrow-back-circle" class="back-btn primary-text"></ion-back-button>
