@@ -37,7 +37,11 @@ export class HomePage {
       button: {
         label: 'More info',
         routerLink: ['/home'],
-        queryParams: { modal: 'MoreInfo', present: 'true', params: JSON.stringify({content: {label: 'info'}}) },
+        queryParams: {
+          modal: 'MoreInfo',
+          present: 'true',
+          params: JSON.stringify({ index: 1 }),
+        },
       },
     },
     {
@@ -455,14 +459,23 @@ export class HomePage {
   }
 
   async openAppModal(name: any, isPresenting?: any, params?: any) {
+    let param;
+    if(params){
+      param = JSON.parse(params);
+    }
+    let isPresent = false;
     let present;
     if (isPresenting === 'true' || isPresenting === true) {
       present = document.getElementById('main-content')!;
+      isPresent = true;
     }
-
+    let componentParam = { isPresenting: isPresent, params: param }
     const modal = await this.modalCtrl.create({
       component: AppModal,
-      componentProps: { componentName: name, componentParam: JSON.parse(params) },
+      componentProps: {
+        componentName: name,
+        componentParams: componentParam,
+      },
       presentingElement: present,
     });
     this.router.navigate([]);

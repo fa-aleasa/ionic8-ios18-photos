@@ -1,25 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    @if (content.label !== '') {
-    <ion-title>{{ content.label | translate }}</ion-title>
-    }
-
+  <ion-toolbar
+    [ngClass]="{
+    'toolbar-padding-vertical toolbar-padding-horizontal': isPresenting === false,
+  }"
+  >
+    @if (params && params.index) { @if (contents[params.index].label !== '') {
+    <ion-title>{{ contents[params.index].label | translate }}</ion-title>
+    } }
     <ion-buttons slot="end">
       <ion-button (click)="close()" class="close-btn">
-        <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="close-circle"
+          class="primary-text"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  @for (item of content.items; track $index) {
-  <h1>{{item.title | translate}}</h1>
-  <ion-text>{{item.BodyStart | translate}}</ion-text>
-  <img [src]="item.img" class="ion-padding" />
-  <ion-text>{{item.BodyEnd | translate}}</ion-text>
+  @if (params && params.index) { @for (item of contents[params.index].items;
+  track $index) {
+  <ion-row>
+    <ion-col>
+      <h1>{{item.title | translate}}</h1>
+      <ion-text>{{item.BodyStart | translate}}</ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <img [src]="item.img" class="ion-padding-vertical" />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text>{{item.BodyEnd | translate}}</ion-text>
+    </ion-col>
+  </ion-row>
   <hr />
-  }
-  <br>
+  <br />
+  } }
   <!-- <p class="ion-margin-horizontal">TITLE</p> -->
 </ion-content>

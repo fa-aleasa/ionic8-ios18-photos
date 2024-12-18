@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonNav, ModalController } from '@ionic/angular';
 
 import { NotificationPage } from '../notification-page/notification-page';
@@ -9,13 +9,15 @@ import { NotificationPage } from '../notification-page/notification-page';
   styleUrls: ['./notifications-home.scss'],
 })
 export class NotificationsHome {
+  @Input() isPresenting: boolean = false;
+
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   constructor(private nav: IonNav, private modalCtrl: ModalController) {}
 
-  navigateToPage() {
-    this.nav.push(NotificationPage, { back: 'back' });
+  navigateTo() {
+    this.nav.push(NotificationPage, { isPresenting: this.isPresenting });
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonNav, ModalController } from '@ionic/angular';
 
 import { SettingsProfile } from '../settings-profile/settings-profile';
@@ -10,13 +10,15 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./settings-home.scss'],
 })
 export class SettingsHome {
+  @Input() isPresenting: boolean = false;
+
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   constructor(private nav: IonNav, private modalCtrl: ModalController) {}
 
-  navigateToProfile() {
-    this.nav.push(SettingsProfile, { isStandalone: false, back: 'settings' });
+  navigateTo() {
+    this.nav.push(SettingsProfile, { isStandalone: false, isPresenting: this.isPresenting });
   }
 }

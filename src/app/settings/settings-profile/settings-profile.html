@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-toolbar class="toolbar-padding-vertical toolbar-padding-horizontal">
+  <ion-toolbar
+  [ngClass]="{
+    'toolbar-padding-vertical toolbar-padding-horizontal': isPresenting === false,
+  }">
     @if (isStandalone === true) {
     <ion-title size="large" class="title-med">{{
       "profile" | translate
@@ -8,13 +11,13 @@
     <ion-title>{{ "profile" | translate }}</ion-title>
 
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-back-circle" color="dark" class="back-btn"></ion-back-button>
+      <ion-back-button text="" icon="arrow-back-circle" class="back-btn primary-text"></ion-back-button>
     </ion-buttons>
     }
 
     <ion-buttons slot="end">
       <ion-button (click)="close()" class="close-btn">
-        <ion-icon slot="icon-only" name="close-circle" color="dark"></ion-icon>
+        <ion-icon slot="icon-only" name="close-circle" class="primary-text"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

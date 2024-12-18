@@ -7,7 +7,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./settings-profile.scss'],
 })
 export class SettingsProfile {
-
+  @Input() isPresenting: boolean = false;
   @Input() isStandalone: boolean = true;
 
   close() {

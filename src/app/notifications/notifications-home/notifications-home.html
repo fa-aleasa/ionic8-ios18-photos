@@ -1,10 +1,13 @@
 <ion-header>
-  <ion-toolbar class="toolbar-padding-vertical toolbar-padding-horizontal">
+  <ion-toolbar
+  [ngClass]="{
+    'toolbar-padding-vertical toolbar-padding-horizontal': isPresenting === false,
+  }">
     <ion-title size="large" class="title-med">{{'notifications' | translate}}</ion-title>
 
     <ion-buttons slot="end">
       <ion-button (click)="close()" class="close-btn">
-        <ion-icon color="dark" slot="icon-only" name="close-circle"></ion-icon>
+        <ion-icon slot="icon-only" name="close-circle" class="primary-text" ></ion-icon>
     </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -16,7 +19,7 @@
     TITLE
   </p>
   <ion-list [inset]="true" class="ion-no-margin">
-    <ion-item button detail="true" (click)="navigateToPage()">
+    <ion-item button detail="true" (click)="navigateTo()">
       <ion-icon slot="start" name="person" size="small"></ion-icon>
       <ion-label>{{'notifications-page' | translate}}</ion-label>
     </ion-item>

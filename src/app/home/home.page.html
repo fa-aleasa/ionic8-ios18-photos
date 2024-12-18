@@ -17,7 +17,9 @@
         <ion-label class="primary-text">Jeddah</ion-label>
       </ion-chip>
 
-      <ion-button (click)="openAppModal('NotificationsHome')" class="btn">
+      <ion-button class="btn"
+      [routerLink]="['/home']" [queryParams]="{ modal: 'NotificationsHome', present: 'true' }"
+      >
         <ion-icon
           slot="icon-only"
           name="notifications-circle"
